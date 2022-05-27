@@ -1,25 +1,26 @@
 name: my_meltano_project
-version: '1.0'
+version: "1.0"
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 profile: meltano
 config-version: 2
-source-paths:
-- models
+model-paths:
+  - models
 analysis-paths:
-- analysis
+  - analysis
 test-paths:
-- tests
-data-paths:
-- data
+  - tests
+seed-paths:
+  - data
 macro-paths:
-- macros
+  - macros
 snapshot-paths:
-- snapshots
+  - snapshots
 target-path: ../.meltano/transformers/dbt/target
 log-path: logs
-modules-path: dbt_modules
+packages-install-path: dbt_packages
 clean-targets:
-- ../.meltano/transformers/dbt/target
-- dbt_modules
-- logs
+  - ../.meltano/transformers/dbt/target
+  - dbt_packages
+  - logs
 models:
   my_meltano_project: null
