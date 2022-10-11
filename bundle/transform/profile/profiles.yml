@@ -26,12 +26,12 @@ meltano:
     postgres_transferwise:
       type: postgres
       threads: 2
-      host: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_HOST') }}"
-      port: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_PORT') | int }}"
-      user: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_USER') }}"
-      pass: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_PASSWORD') }}"
-      dbname: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_DBNAME') }}"
-      schema: "{{ env_var('TARGET_POSTGRES__TRANSFERWISE_DEFAULT_TARGET_SCHEMA') }}"
+      host: "{{ env_var('TARGET_POSTGRES_HOST') }}"
+      port: "{{ env_var('TARGET_POSTGRES_PORT') | int }}"
+      user: "{{ env_var('TARGET_POSTGRES_USER') }}"
+      pass: "{{ env_var('TARGET_POSTGRES_PASSWORD') }}"
+      dbname: "{{ env_var('TARGET_POSTGRES_DBNAME') }}"
+      schema: "{{ env_var('TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA') }}"
     bigquery:
       type: bigquery
       threads: 2
