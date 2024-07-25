@@ -1,7 +1,7 @@
 {% macro centralize_test_failures(results) %}
 
-    {# Only proceed if the command is 'test'. #}
-    {% if flags.WHICH == 'test' and flags.STORE_FAILURES and env_var('STORE_TEST_RESULTS', 'false') == 'true'%}
+    {# Only proceed if the command is 'test', the env var is true, and the dbt adapter is snowflake. #}
+    {% if flags.WHICH == 'test' and flags.STORE_FAILURES and env_var('STORE_TEST_RESULTS', 'false') == 'true' and adapter.type() == 'snowflake'%}
 
       {%- set test_results = [] -%}
       {%- for result in results -%}
