@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="files-dbt",
-    version="0.3",
+    version="0.4",
     description="Matatika project files for dbt",
     packages=find_packages(),
     package_data={
@@ -11,6 +11,7 @@ setup(
             "transform/profile/profiles.yml",
             "transform/.gitignore",
             "transform/dbt_project.yml",
+            "transform/macros/*.sql",
         ]
     },
 )

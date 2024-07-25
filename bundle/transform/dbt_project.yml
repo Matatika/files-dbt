@@ -24,3 +24,12 @@ clean-targets:
   - logs
 models:
   my_meltano_project: null
+  elementary:
+    +meta:
+      schema_name: "matatika_test_results"
+on-run-end:
+  - "{{ centralize_test_failures(results) }}"
+tests:
+  +schema: matatika_test_results
+vars:
+  tests_schema: matatika_test_results
