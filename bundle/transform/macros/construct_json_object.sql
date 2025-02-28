@@ -23,7 +23,7 @@ WHERE table_name = '{{ tblname_replaced }}'
 
     {% for column_name in chunk %}
         {% set col_name = column_name %}
-        {% do json_build_object_parts.append("'" ~ col_name ~ "', " ~ col_name) %}
+        {% do json_build_object_parts.append("'" ~ col_name ~ "', " ~ '"' ~ col_name ~ '"') %}
     {% endfor %}
 
     {% set json_build_object = json_build_object_parts | join(', ') %}
