@@ -1,4 +1,4 @@
-config:
+flags:
   send_anonymous_usage_stats: False
   use_colors: True
 meltano:
@@ -8,8 +8,9 @@ meltano:
       type: snowflake
       threads: 2
       account: "{{ env_var('TARGET_SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('TARGET_SNOWFLAKE_USERNAME') }}"
+      user: "{{ env_var('TARGET_SNOWFLAKE_USER') }}"
       password: "{{ env_var('TARGET_SNOWFLAKE_PASSWORD') }}"
+      private_key: "{{ env_var('TARGET_SNOWFLAKE_PRIVATE_KEY') }}"
       role: "{{ env_var('TARGET_SNOWFLAKE_ROLE') }}"
       database: "{{ env_var('TARGET_SNOWFLAKE_DATABASE') }}"
       warehouse: "{{ env_var('TARGET_SNOWFLAKE_WAREHOUSE') }}"
