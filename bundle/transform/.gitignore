@@ -1,3 +1,5 @@
 target/
 dbt_modules/
+dbt_pacakges/
 logs/
+profile/.user.yml
