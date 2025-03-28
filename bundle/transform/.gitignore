@@ -1,5 +1,5 @@
 target/
 dbt_modules/
-dbt_pacakges/
+dbt_packages/
 logs/
 profile/.user.yml
