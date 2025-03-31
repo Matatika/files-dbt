@@ -11,7 +11,7 @@ meltano:
       user: "{{ env_var('TARGET_SNOWFLAKE_USER') }}"
       password: "{{ env_var('TARGET_SNOWFLAKE_PASSWORD') }}"
       private_key: "{{ env_var('TARGET_SNOWFLAKE_PRIVATE_KEY') }}"
-      private_key_passphrase: "{{ env_var('TARGET_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE') }}"
+      private_key_passphrase: "{{ env_var('TARGET_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE', '') }}"
       role: "{{ env_var('TARGET_SNOWFLAKE_ROLE') }}"
       database: "{{ env_var('TARGET_SNOWFLAKE_DATABASE') }}"
       warehouse: "{{ env_var('TARGET_SNOWFLAKE_WAREHOUSE') }}"
