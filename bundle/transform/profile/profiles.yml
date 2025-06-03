@@ -38,9 +38,9 @@ meltano:
       type: bigquery
       threads: 2
       method: service-account-json
-      project: "{{ env_var('TARGET_BIGQUERY_PROJECT_ID') }}"
-      dataset: "{{ env_var('DBT_TARGET_SCHEMA') }}"
-      keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') }}"
+      project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
+      dataset: "{{ env_var('TARGET_BIGQUERY_DATASET') }}"
+      keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
 elementary:
   target: "{{ env_var('DBT_TARGET') }}"
   outputs:
@@ -76,7 +76,6 @@ elementary:
       type: bigquery
       threads: 2
       method: service-account-json
-      project: "{{ env_var('TARGET_BIGQUERY_PROJECT_ID') }}"
-      dataset: "{{ env_var('DBT_TARGET_SCHEMA') }}"
-      keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') }}"
-      schema: "matatika_test_results"
+      project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
+      dataset: "matatika_test_results"
+      keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
