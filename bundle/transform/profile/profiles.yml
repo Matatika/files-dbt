@@ -38,7 +38,7 @@ meltano:
       type: bigquery
       threads: 2
       method: service-account-json
-      project: "{{ env_var('TARGET_BIGQUERY_PROJECT_ID') }}"
+      project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
       dataset: "{{ env_var('DBT_TARGET_SCHEMA') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') }}"
 elementary:
@@ -76,7 +76,7 @@ elementary:
       type: bigquery
       threads: 2
       method: service-account-json
-      project: "{{ env_var('TARGET_BIGQUERY_PROJECT_ID') }}"
+      project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
       dataset: "{{ env_var('DBT_TARGET_SCHEMA') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') }}"
       schema: "matatika_test_results"
