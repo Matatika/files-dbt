@@ -40,6 +40,7 @@ meltano:
       method: service-account-json
       project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
       dataset: "{{ env_var('TARGET_BIGQUERY_DATASET') }}"
+      location: "{{ env_var('TARGET_BIGQUERY_LOCATION', '') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
 elementary:
   target: "{{ env_var('DBT_TARGET') }}"
@@ -78,4 +79,5 @@ elementary:
       method: service-account-json
       project: "{{ env_var('TARGET_BIGQUERY_PROJECT') }}"
       dataset: "matatika_test_results"
+      location: "{{ env_var('TARGET_BIGQUERY_LOCATION', '') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
