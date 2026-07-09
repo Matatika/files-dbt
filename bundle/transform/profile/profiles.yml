@@ -42,6 +42,16 @@ meltano:
       dataset: "{{ env_var('TARGET_BIGQUERY_DATASET') }}"
       location: "{{ env_var('TARGET_BIGQUERY_LOCATION', '') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
+    clickhouse:
+      type: clickhouse
+      threads: 2
+      driver: http
+      host: "{{ env_var('TARGET_CLICKHOUSE_HOST') }}"
+      port: "{{ env_var('TARGET_CLICKHOUSE_PORT') | int }}"
+      user: "{{ env_var('TARGET_CLICKHOUSE_USERNAME') }}"
+      password: "{{ env_var('TARGET_CLICKHOUSE_PASSWORD') }}"
+      schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
+      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') }}"
 elementary:
   target: "{{ env_var('DBT_TARGET') }}"
   outputs:
@@ -81,3 +91,13 @@ elementary:
       dataset: "matatika_test_results"
       location: "{{ env_var('TARGET_BIGQUERY_LOCATION', '') }}"
       keyfile_json: "{{ env_var('TARGET_BIGQUERY_CREDENTIALS_JSON') | as_native }}"
+    clickhouse:
+      type: clickhouse
+      threads: 2
+      driver: http
+      host: "{{ env_var('TARGET_CLICKHOUSE_HOST') }}"
+      port: "{{ env_var('TARGET_CLICKHOUSE_PORT') | int }}"
+      user: "{{ env_var('TARGET_CLICKHOUSE_USERNAME') }}"
+      password: "{{ env_var('TARGET_CLICKHOUSE_PASSWORD') }}"
+      schema: "matatika_test_results"
+      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') }}"
