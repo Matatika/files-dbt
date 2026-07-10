@@ -51,7 +51,7 @@ meltano:
       user: "{{ env_var('TARGET_CLICKHOUSE_USERNAME') }}"
       password: "{{ env_var('TARGET_CLICKHOUSE_PASSWORD') }}"
       schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
-      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') }}"
+      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') | as_bool }}"
 elementary:
   target: "{{ env_var('DBT_TARGET') }}"
   outputs:
@@ -100,4 +100,4 @@ elementary:
       user: "{{ env_var('TARGET_CLICKHOUSE_USERNAME') }}"
       password: "{{ env_var('TARGET_CLICKHOUSE_PASSWORD') }}"
       schema: "matatika_test_results"
-      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') }}"
+      secure: "{{ env_var('TARGET_CLICKHOUSE_SECURE', 'False') | as_bool }}"
