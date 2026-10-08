@@ -59,6 +59,14 @@ meltano:
       config_options:
         motherduck_token: "{{ env_var('TARGET_MOTHERDUCK_TOKEN') }}"
       schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
+    databricks:
+      type: databricks
+      threads: 2
+      host: "{{ env_var('TARGET_DATABRICKS_SERVER_HOSTNAME') }}"
+      http_path: "{{ env_var('TARGET_DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('TARGET_DATABRICKS_ACCESS_TOKEN') }}"
+      catalog: "{{ env_var('TARGET_DATABRICKS_CATALOG', 'hive_metastore') }}"
+      schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
 elementary:
   target: "{{ env_var('DBT_TARGET') }}"
   outputs:
@@ -114,4 +122,12 @@ elementary:
       path: "{{ env_var('TARGET_MOTHERDUCK_PATH') }}"
       config_options:
         motherduck_token: "{{ env_var('TARGET_MOTHERDUCK_TOKEN') }}"
+      schema: "matatika_test_results"
+    databricks:
+      type: databricks
+      threads: 2
+      host: "{{ env_var('TARGET_DATABRICKS_SERVER_HOSTNAME') }}"
+      http_path: "{{ env_var('TARGET_DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('TARGET_DATABRICKS_ACCESS_TOKEN') }}"
+      catalog: "{{ env_var('TARGET_DATABRICKS_CATALOG', 'hive_metastore') }}"
       schema: "matatika_test_results"
